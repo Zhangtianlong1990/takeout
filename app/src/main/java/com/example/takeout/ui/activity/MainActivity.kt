@@ -1,10 +1,16 @@
-package com.example.takeout
+package com.example.takeout.ui.activity
 
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import com.example.takeout.R
+import com.example.takeout.ui.fragment.HomeFragment
+import com.example.takeout.ui.fragment.MoreFragment
+import com.example.takeout.ui.fragment.OrderFragment
+import com.example.takeout.ui.fragment.UserFragment
 
 
 class MainActivity : AppCompatActivity() {
@@ -14,7 +20,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         main_bottom_bar = findViewById<LinearLayout>(R.id.main_bottom_bar)
         initBottomBar()
+        changeIndex(0)
     }
+    val fragments: List<Fragment> = listOf<Fragment>(HomeFragment(),OrderFragment(),UserFragment(),MoreFragment())
 
     private fun initBottomBar() {
         main_bottom_bar?.run {
@@ -38,6 +46,7 @@ class MainActivity : AppCompatActivity() {
                     setEnable(child,true)
                 }
             }
+            supportFragmentManager.beginTransaction().replace(R.id.main_content,fragments[index]).commit()
         }
     }
 
