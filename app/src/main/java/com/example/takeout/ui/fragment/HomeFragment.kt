@@ -13,9 +13,9 @@ import com.example.takeout.contract.TakeoutMainScreenContract
 import com.example.takeout.repository.TakeoutRepository
 import com.example.takeout.viewmodel.TakeoutMainScreenViewModel
 
-class HomeFragment:Fragment(),TakeoutMainScreenContract.TakeoutMainScreenRouter{
+open class HomeFragment(val viewModel:TakeoutMainScreenViewModel?):Fragment(),TakeoutMainScreenContract.TakeoutMainScreenRouter{
 
-    var viewModel: TakeoutMainScreenViewModel? = null
+//    var viewModel: TakeoutMainScreenViewModel? = null
     var searchButton: TextView? = null
     var menuButton: TextView? = null
     var learnMoreButton: TextView? = null
@@ -26,8 +26,11 @@ class HomeFragment:Fragment(),TakeoutMainScreenContract.TakeoutMainScreenRouter{
     }
 
     private fun initViewModel() {
-        viewModel = TakeoutMainScreenViewModel(TakeoutRepository())
         viewModel?.viewDidLoad()
+    }
+
+    init {
+        viewModel?.router = this
     }
 
     override fun onCreateView(

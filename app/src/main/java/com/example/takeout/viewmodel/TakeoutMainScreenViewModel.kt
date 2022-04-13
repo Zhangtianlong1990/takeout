@@ -7,6 +7,8 @@ import com.example.takeout.utils.SingleClickEvent
 
 open class TakeoutMainScreenViewModel(private val takeoutRepository: TakeoutMainScreenContract.ITakeoutMainScreenRepository): TakeoutMainScreenContract.TakeMainScreenViewModelInput,TakeoutMainScreenContract.TakeMainScreenViewModelOutput{
 
+    var router : TakeoutMainScreenContract.TakeoutMainScreenRouter? = null
+
     private var _gotoTakeoutLearnMorePage = SingleClickEvent()
     override val gotoTakeoutLearnMorePage: LiveData<Nothing> = _gotoTakeoutLearnMorePage
 
@@ -25,7 +27,8 @@ open class TakeoutMainScreenViewModel(private val takeoutRepository: TakeoutMain
     }
 
     override fun didClickNavigationBarSearchButton() {
-        _gotoTakeoutSearchPage.call()
+//        _gotoTakeoutSearchPage.call()
+        router?.navigationToTakeoutSearchPage()
     }
 
     override fun didClickNavigationBarSlideMenuButton() {

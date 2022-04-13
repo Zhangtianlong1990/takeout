@@ -1,9 +1,7 @@
 package com.example.takeout
 
-import androidx.lifecycle.LifecycleOwner
 import com.example.takeout.mock.mockTakeoutMainScreenViewModel
 import com.example.takeout.repository.TakeoutRepository
-import com.example.takeout.viewmodel.TakeoutMainScreenViewModel
 import org.junit.Test
 
 import org.junit.Assert.*
@@ -15,7 +13,7 @@ import org.junit.Before
  * See [testing documentation](http://d.android.com/tools/testing).
  */
 
-class ExampleUnitTest {
+class TakeoutMainScreenViewModelTest {
 
     lateinit var viewModel : mockTakeoutMainScreenViewModel
 
@@ -31,8 +29,4 @@ class ExampleUnitTest {
         assertEquals(viewModel.searchButtonClick,1)
     }
 
-    @Test
-    fun addition_isCorrect() {
-        assertEquals(4, 2 + 2)
-    }
 }
