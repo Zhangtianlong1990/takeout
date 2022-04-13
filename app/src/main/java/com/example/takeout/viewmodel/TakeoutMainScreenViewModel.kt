@@ -1,10 +1,11 @@
 package com.example.takeout.viewmodel
 
+import androidx.annotation.MainThread
 import androidx.lifecycle.LiveData
 import com.example.takeout.contract.TakeoutMainScreenContract
 import com.example.takeout.utils.SingleClickEvent
 
-class TakeoutMainScreenViewModel(private val takeoutRepository: TakeoutMainScreenContract.ITakeoutMainScreenRepository): TakeoutMainScreenContract.TakeMainScreenViewModelInput,TakeoutMainScreenContract.TakeMainScreenViewModelOutput{
+open class TakeoutMainScreenViewModel(private val takeoutRepository: TakeoutMainScreenContract.ITakeoutMainScreenRepository): TakeoutMainScreenContract.TakeMainScreenViewModelInput,TakeoutMainScreenContract.TakeMainScreenViewModelOutput{
 
     private var _gotoTakeoutLearnMorePage = SingleClickEvent()
     override val gotoTakeoutLearnMorePage: LiveData<Nothing> = _gotoTakeoutLearnMorePage
