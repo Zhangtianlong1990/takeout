@@ -27,7 +27,7 @@ open class TakeoutMainScreenViewModel(private val takeoutRepository: TakeoutMain
     }
 
     override fun didClickNavigationBarSearchButton() {
-//        _gotoTakeoutSearchPage.call()
+        _gotoTakeoutSearchPage.call()
         router?.navigationToTakeoutSearchPage()
     }
 
