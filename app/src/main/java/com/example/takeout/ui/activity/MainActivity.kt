@@ -7,10 +7,12 @@ import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.takeout.R
+import com.example.takeout.repository.TakeoutRepository
 import com.example.takeout.ui.fragment.HomeFragment
 import com.example.takeout.ui.fragment.MoreFragment
 import com.example.takeout.ui.fragment.OrderFragment
 import com.example.takeout.ui.fragment.UserFragment
+import com.example.takeout.viewmodel.TakeoutMainScreenViewModel
 
 
 class MainActivity : AppCompatActivity() {
@@ -22,7 +24,11 @@ class MainActivity : AppCompatActivity() {
         initBottomBar()
         changeIndex(0)
     }
-    val fragments: List<Fragment> = listOf<Fragment>(HomeFragment(),OrderFragment(),UserFragment(),MoreFragment())
+    val fragments: List<Fragment> = listOf<Fragment>(HomeFragment(
+        TakeoutMainScreenViewModel(
+        TakeoutRepository()
+    )
+    ),OrderFragment(),UserFragment(),MoreFragment())
 
     private fun initBottomBar() {
         main_bottom_bar?.run {
