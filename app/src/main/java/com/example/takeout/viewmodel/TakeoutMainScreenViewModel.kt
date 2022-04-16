@@ -33,6 +33,5 @@ open class TakeoutMainScreenViewModel(private val takeoutRepository: TakeoutMain
     override fun didClickNavigationBarSlideMenuButton() {
         _gotoTakeoutMenuPage.call()
     }
-
-
+    
 }
