@@ -19,7 +19,6 @@ open class TakeoutMainScreenViewModel(private val takeoutRepository: TakeoutMain
     override val gotoTakeoutMenuPage: LiveData<Nothing> = _gotoTakeoutMenuPage
 
     override fun viewDidLoad() {
-
     }
 
     override fun didClickNavigationBarLearnMoreButton() {
