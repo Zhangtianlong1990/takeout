@@ -19,6 +19,8 @@ open class HomeFragment(val viewModel:TakeoutMainScreenViewModel?):Fragment(),Ta
     var searchButton: TextView? = null
     var menuButton: TextView? = null
     var learnMoreButton: TextView? = null
+    var buyingPowerAmountLabel: TextView? = null
+    var buyingPowerCurrencyLabel: TextView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,6 +44,8 @@ open class HomeFragment(val viewModel:TakeoutMainScreenViewModel?):Fragment(),Ta
         searchButton = view.findViewById<TextView>(R.id.search_button)
         menuButton = view.findViewById<TextView>(R.id.menu_button)
         learnMoreButton = view.findViewById<TextView>(R.id.learn_more_button)
+        buyingPowerAmountLabel = view.findViewById<TextView>(R.id.buyingPowerAmountLabel)
+        buyingPowerCurrencyLabel = view.findViewById<TextView>(R.id.buyingPowerCurrencyLabel)
         setupView()
         return view
     }
@@ -56,6 +60,9 @@ open class HomeFragment(val viewModel:TakeoutMainScreenViewModel?):Fragment(),Ta
         learnMoreButton?.setOnClickListener {
             viewModel?.didClickNavigationBarLearnMoreButton()
         }
+        buyingPowerAmountLabel?.setOnClickListener{
+            viewModel?.didClickBuyingPowerLearnMore()
+        }
         viewModel?.run {
             gotoTakeoutSearchPage.observe(viewLifecycleOwner,{
                 navigationToTakeoutSearchPage()
@@ -65,6 +72,13 @@ open class HomeFragment(val viewModel:TakeoutMainScreenViewModel?):Fragment(),Ta
             })
             gotoTakeoutLearnMorePage.observe(viewLifecycleOwner,{
                 navigationToTakeoutLearnMorePage()
+            })
+            gotoBuyingPowerLearnMorePage.observe(viewLifecycleOwner,{
+                navigationToBuyingPowerLearnMorePage()
+            })
+            buyingPowerUIModel.observe(viewLifecycleOwner,{
+                buyingPowerAmountLabel?.text = it.buyingPowerAmount
+                buyingPowerCurrencyLabel?.text = it.currencyCode
             })
         }
     }
@@ -80,4 +94,9 @@ open class HomeFragment(val viewModel:TakeoutMainScreenViewModel?):Fragment(),Ta
     override fun navigationToTakeoutMenuPage() {
         println("navigationToTakeoutMenuPage")
     }
+
+    override fun navigationToBuyingPowerLearnMorePage() {
+        println("navigationToBuyingPowerLearnMorePage")
+    }
+
 }

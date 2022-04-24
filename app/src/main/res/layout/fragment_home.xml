@@ -27,6 +27,20 @@
         android:gravity="center"
         android:background="@color/black"
         android:layout_height="50dp"/>
-
+    <TextView
+        android:id="@+id/buyingPowerAmountLabel"
+        android:layout_width="match_parent"
+        android:text="buyingPowerAmountLabel"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:layout_height="50dp"/>
+    <TextView
+        android:id="@+id/buyingPowerCurrencyLabel"
+        android:layout_width="match_parent"
+        android:text="buyingPowerCurrencyLabel"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:background="@color/black"
+        android:layout_height="50dp"/>
 
 </LinearLayout>
