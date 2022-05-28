@@ -42,5 +42,9 @@
         android:gravity="center"
         android:background="@color/black"
         android:layout_height="50dp"/>
+    <com.example.takeout.ribs.JLLearnMoreItemView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
 
 </LinearLayout>
